@@ -1,4 +1,5 @@
 from django.db import models
+
 from adaptor.model import CsvModel
 
 class squirrel(CsvModel):
