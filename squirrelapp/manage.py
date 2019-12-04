@@ -2,7 +2,8 @@
 """Django's command-line utility for administrative tasks."""
 import os
 import sys
-
+import pandas as pd
+import numpy as np
 
 def main():
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'squirrelapp.settings')
