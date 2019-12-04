@@ -1,8 +1,8 @@
 from django.db import models
 import numpy as np
-from adaptor.model import CsvModel
 
-class squirrel(CsvModel):
+
+class squirrel(models.Model):
     Latitude = models.FloatField(default=0)
     Longitude = models.FloatField(default=0)
     Unique_Squirrel_ID = models.IntegerField(default=0)
