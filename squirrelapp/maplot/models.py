@@ -1,6 +1,6 @@
 from django.db import models
+import numpy as np
 
-from adaptor.model import CsvModel
 
 class squirrel(models.Model):
     Latitude = models.FloatField(default=0)
@@ -27,6 +27,13 @@ class squirrel(models.Model):
     Indifferent = models.FloatField(default=0)
     Runs_from = models.FloatField(default=0)
 
+<<<<<<< HEAD
     
+=======
+    def __str__(self):
+        return self.Unique_squirrel_ID
+    def get_absolute_url(self):
+        return reverse('', kwargs={'id':self.Unique_squirrel_ID})
+>>>>>>> 42678822a1a50e112c32c304e7d0465ef5c54ab9
 
 # Create your models here.
