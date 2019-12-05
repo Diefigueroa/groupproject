@@ -2,7 +2,7 @@ from django.core.management.base import BaseCommand, CommandError
 from maplot.models import squirrel
 import pandas as pd
 import os
-import re, sys, csv
+import re, sys,request,csv
 from datetime import date
 class Command(BaseCommand):
     help = 'Closes the specified poll for voting'
