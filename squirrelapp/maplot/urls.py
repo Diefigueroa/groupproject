@@ -3,7 +3,8 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('', views.sightings, name='sightings'),
-    path('<int:squirrel_id>', views.update_delete, name='update_delete'),
-    path('add', views.add, name='add'),
+    path('map/', views.map, name='map'),
+    path('sightings/', views.sightings, name='sightings'),
+    path('sightings/<int:Unique_Squirrel_ID>/', views.update_delete, name='update_delete'),
+    path('sightings/add/', views.add, name='add'),
 ]

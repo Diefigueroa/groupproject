@@ -1,7 +1,10 @@
 from django.shortcuts import render
-
+from django.template import loader
 from django.http import HttpResponse
 
+def map(request):
+    template = loader.get_template('maplot/map.html')
+    return render(request, 'maplot/map.html', {})
 
 def sightings(request):
     return HttpResponse("Hello, world. this is sightings page.")

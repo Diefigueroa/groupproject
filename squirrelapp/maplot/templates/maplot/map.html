@@ -1,0 +1,31 @@
+<html>
+<head>
+  <title>A Leaflet map!</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+   integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+   crossorigin=""/>
+  <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+  <style>
+   #mapid{ width: 800px; height: 800px; }
+  </style>
+</head>
+<body>
+
+  <div id="mapid"></div>
+
+  <script>
+
+  // initialize the map
+  var mymap = L.map('mapid').setView([40.7837, -73.9668], 14);
+
+  // load a tile layer
+  L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+    maxZoom: 18,
+    id: 'mapbox/streets-v11',
+    accessToken: 'pk.eyJ1IjoiZGYyNzYxIiwiYSI6ImNrM3R3YmVvZDA3Z2EzaXFtcHlqMzZxbWIifQ.f0B8E52UBwVYP184XuIRkQ'
+}).addTo(mymap);
+  var marker = L.marker([40.5, -70.09]).addTo(mymap);
+  </script>
+</body>
+</html>
