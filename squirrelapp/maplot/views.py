@@ -12,7 +12,7 @@ def index(request):
             'squirrels':squirrels,
             'fields':fields,
             }
-    return render(request,'maplot/all.html',context)
+    return render(request,'maplot/index.html',context)
 
 def squirrel_stats(request):
     squirrel_stats1=squirrel.objects.all().count()
