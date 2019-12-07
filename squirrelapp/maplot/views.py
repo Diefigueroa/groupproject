@@ -4,6 +4,15 @@ from django.http import HttpResponse
 from .models import squirrel
 from .forms import squirrelForm
 
+def index(request):
+    squirrels = squirrel.objects.all()
+    fields = ['Latitude','Longitude','Unique_Squirrel_ID','Shift','Date','Age','Primary_fur_color','Location','Specific_location','Running','Chasing','Climbing','Eating','Foraging','Other_Activities','Kuks','Quaas','Moans','Tail_Flags','Tail_Twitches','Approaches','Indifferent','Runs_From']
+    context={
+            'squirrels':squirrels,
+            'fields':fields,
+            }
+    return render(request,'maplot/all.html',context)
+
 def map(request):
     template = loader.get_template('maplot/map.html')
     return render(request, 'maplot/map.html', {})
