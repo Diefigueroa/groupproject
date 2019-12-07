@@ -5,8 +5,8 @@ import numpy as np
 class squirrel(models.Model):
     
 
-    Latitude = models.FloatField(default=0)
-    Longitude = models.FloatField(default=0)
+    latitude = models.FloatField(default=0)
+    longitude = models.FloatField(default=0)
     Unique_Squirrel_ID = models.CharField(max_length=200,primary_key=True)
     Shift = models.CharField(max_length=200)
     Date = models.DateField('date published')
