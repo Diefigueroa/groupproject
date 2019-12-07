@@ -14,6 +14,21 @@ def index(request):
             }
     return render(request,'maplot/all.html',context)
 
+def squirrel_stats(request):
+    squirrel_stats1=squirrel.objects.all().count()
+    squirrel_stats2=squirrel.objects.filter(Age='Juvenile').count()
+    squirrel_stats3=squirrel.objects.filter(Running='true').count()
+    squirrel_stats4=squirrel.objects.filter(Moans='true').count()
+    squirrel_stats5=squirrel.objects.filter(Indifferent='true').count()
+    context={'squirrel_stats1':squirrel_stats1,
+            'squirrel_stats2':squirrel_stats2,
+            'squirrel_stats3':squirrel_stats3,
+            'squirrel_stats3':squirrel_stats3,
+            'squirrel_stats4':squirrel_stats4,
+            'squirrel_stats5':squirrel_stats5,
+            }
+    return render(request, 'maplot/stats.html', context)
+
 def map(request):
     books = squirrel.objects.all()
     form = QueryForm(request.GET or None)
