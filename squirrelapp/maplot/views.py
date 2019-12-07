@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.template import loader
 from django.http import HttpResponse
+from .models import squirrel
 
 def map(request):
     template = loader.get_template('maplot/map.html')
