@@ -31,6 +31,7 @@ def squirrel_stats(request):
 
 def map(request):
     sightings = squirrel.objects.all()
+<<<<<<< HEAD
     form = QueryForm(request.GET or None)
     paramDict = request.GET
 
@@ -49,12 +50,10 @@ def map(request):
         'page_count':page_count['pages__sum'], 
         'form':form}
 
+=======
+    context ={"sightings": sightings}
+>>>>>>> b1f28c2d30bad51c2edf0c8cfa890de128b13074
     return render(request, 'maplot/map.html', context)
-
-
-
-def sightings(request):
-    return HttpResponse("Hello, world. this is sightings page.")
 
 def stats(request):
     return HttpResponse("Hello, world. this is sightings page.")
