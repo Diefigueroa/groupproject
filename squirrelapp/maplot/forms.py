@@ -4,5 +4,4 @@ from .models import squirrel
 class squirrelForm(ModelForm):
     class Meta:
         model = squirrel
-	fields = '__all__'
-
+        fields = '__all__'

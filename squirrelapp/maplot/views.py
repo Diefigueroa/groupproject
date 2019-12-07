@@ -1,7 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.template import loader
 from django.http import HttpResponse
 from .models import squirrel
+from django import forms
 from .forms import squirrelForm
 
 def map(request):
@@ -15,27 +16,30 @@ def sightings(request):
 def edit(request, Unique_Squirrel_ID):
     pet  = squirrel.object.get(id=Unique_Squirrel_ID)
     if request.method == 'POST':
-	form = squirrelForm(request.POST, instance=pet)
-	#checked data with form
-	if form.is_valid():
-	    form.save()
-	    return redirect(f'/sightings/map/') #builds a redirect response y envia a otro url
+        form = squirrelForm(request.POST,instance=pet)
+    
+        if form.is_valid():
+            form.save()
+            return redirect(f'/sightings/map/')
 
     else:
-	form = squirrelForm(instance = pet)
-    context = { 'form' = form}
+        form = squirrelForm(instance=pet)
+        context = {
+                'form':form,
+                }
     return render(request, 'maplot/edit.html',context)
 
-def add(request, Unique_Squirrel_ID):
+def add(request):
     
     if request.method == 'POST':
         form = squirrelForm(request.POST)
-        #checked data with form
+        
         if form.is_valid():
             form.save()
-            return redirect(f'/sightings/map/') #builds a redirect response y envia a otro url
+            return redirect(f'/sightings/map/') 
     else:
-        form = squirrelForm(instance = pet)
-    context = { 'form' = form}
+        form = squirrelForm()
+        context = {
+                'form':form,
+                }
     return render(request, 'maplot/edit.html',context)
-# Create your views here.
