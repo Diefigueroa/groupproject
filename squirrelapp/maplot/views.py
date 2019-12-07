@@ -25,7 +25,7 @@ def stats(request):
     return HttpResponse("Hello, world. this is sightings page.")
 
 def edit(request, Unique_Squirrel_ID):
-    pet  = squirrel.object.get(id=Unique_Squirrel_ID)
+    pet  = squirrel.objects.get(pk =Unique_Squirrel_ID)
     if request.method == 'POST':
         form = squirrelForm(request.POST,instance=pet)
     

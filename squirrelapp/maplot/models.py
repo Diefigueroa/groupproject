@@ -3,7 +3,7 @@ import numpy as np
 
 
 class squirrel(models.Model):
-    objects = models.Manager()
+    
 
     Latitude = models.FloatField(default=0)
     Longitude = models.FloatField(default=0)
@@ -32,7 +32,5 @@ class squirrel(models.Model):
 
     def __str__(self):
         return self.Unique_Squirrel_ID
-    def get_absolute_url(self):
-        return reverse('', kwargs={'id':self.Unique_Squirrel_ID})
-
+    
 # Create your models here.
