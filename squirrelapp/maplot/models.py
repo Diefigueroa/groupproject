@@ -32,5 +32,4 @@ class squirrel(models.Model):
     def get_absolute_url(self):
         return reverse('', kwargs={'id':self.Unique_Squirrel_ID})
 
-
 # Create your models here.
