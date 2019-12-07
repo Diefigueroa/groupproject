@@ -4,7 +4,7 @@ from . import views
 
 urlpatterns = [
 
-    path('soghtings', views.index, name='index'),     
+    path('sightings', views.index, name='index'),     
     path('map/', views.map, name='map'),
     path('sightings/stats/', views.squirrel_stats,name='stats'),
     path('sightings/<str:Unique_Squirrel_ID>/', views.edit, name='edit'),
