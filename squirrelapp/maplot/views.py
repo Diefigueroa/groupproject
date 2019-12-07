@@ -31,28 +31,7 @@ def squirrel_stats(request):
 
 def map(request):
     sightings = squirrel.objects.all()
-<<<<<<< HEAD
-    form = QueryForm(request.GET or None)
-    paramDict = request.GET
-
-    books = filter_books(books, paramDict)
-
-    page_count = books.aggregate(Sum('pages'))
- 
-    map_books = [{'loc':[float(book.Longitude), float(book.Latitude)], 
-                  'title':book.Unique_Squirrel_ID,
-                  'url':book.get_absolute_url()} for book in books]
-    context = {
-        'sightings':sightings,
-        # Here, we apply `json.dumps`, `escapejs` and `marksafe` for security 
-        # and proper formatting
-        'map_books': mark_safe(escapejs(json.dumps(map_books))),
-        'page_count':page_count['pages__sum'], 
-        'form':form}
-
-=======
     context ={"sightings": sightings}
->>>>>>> b1f28c2d30bad51c2edf0c8cfa890de128b13074
     return render(request, 'maplot/map.html', context)
 
 def stats(request):
