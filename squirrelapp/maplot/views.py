@@ -16,10 +16,10 @@ def index(request):
 
 def squirrel_stats(request):
     squirrel_stats1=squirrel.objects.all().count()
-    squirrel_stats2=squirrel.objects.filter(Age=='Juvenile').count()
-    squirrel_stats3=squirrel.objects.filter(Running=='True').count()
-    squirrel_stats4=squirrel.objects.filter(Moans=='True').count()
-    squirrel_stats5=squirrel.objects.filter(Indifferent=='True').count()
+    squirrel_stats2=squirrel.objects.filter(Age='Juvenile').count()
+    squirrel_stats3=squirrel.objects.filter(Running='True').count()
+    squirrel_stats4=squirrel.objects.filter(Moans='True').count()
+    squirrel_stats5=squirrel.objects.filter(Indifferent='True').count()
     context={'squirrel_stats1':squirrel_stats1,
             'squirrel_stats2':squirrel_stats2,
             'squirrel_stats3':squirrel_stats3,
