@@ -3,6 +3,8 @@ import numpy as np
 
 
 class squirrel(models.Model):
+    
+
     Latitude = models.FloatField(default=0)
     Longitude = models.FloatField(default=0)
     Unique_Squirrel_ID = models.CharField(max_length=200,primary_key=True)
@@ -26,11 +28,9 @@ class squirrel(models.Model):
     Approaches = models.CharField(max_length=200)
     Indifferent = models.CharField(max_length=200)
     Runs_from = models.CharField(max_length=200)
-    objects = models.Manager()
+    
 
     def __str__(self):
         return self.Unique_Squirrel_ID
-    def get_absolute_url(self):
-        return reverse('', kwargs={'id':self.Unique_Squirrel_ID})
-
+    
 # Create your models here.

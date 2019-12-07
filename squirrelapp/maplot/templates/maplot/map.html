@@ -31,18 +31,9 @@
     accessToken: 'pk.eyJ1IjoiZGYyNzYxIiwiYSI6ImNrM3R3YmVvZDA3Z2EzaXFtcHlqMzZxbWIifQ.f0B8E52UBwVYP184XuIRkQ'
 }).addTo(mymap);
 i
-</script>
 
-<p id="one"></p>
-<button onclick="random()">Random</button>
 
-<script>
- function random(){
-
-document.getElementById("one").innerHTML = Math.floor(Math.random() * 10);
-}
-  {'n' : range(100) }
-  {% for squirrel in n %}
+{% for squirrel in n %}
         var point_lat_lon = [{{ squirrel.Latitude }}, {{ squirrel.Longitude }}];
         var marker = L.marker(point_lat_lon).addTo(mymap);
   {% endfor %}
