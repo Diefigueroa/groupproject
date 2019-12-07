@@ -30,7 +30,7 @@ def squirrel_stats(request):
     return render(request, 'maplot/stats.html', context)
 
 def map(request):
-    books = squirrel.objects.all()
+    sightings = squirrel.objects.all()
     form = QueryForm(request.GET or None)
     paramDict = request.GET
 
@@ -42,7 +42,7 @@ def map(request):
                   'title':book.Unique_Squirrel_ID,
                   'url':book.get_absolute_url()} for book in books]
     context = {
-        'books':books,
+        'sightings':sightings,
         # Here, we apply `json.dumps`, `escapejs` and `marksafe` for security 
         # and proper formatting
         'map_books': mark_safe(escapejs(json.dumps(map_books))),
