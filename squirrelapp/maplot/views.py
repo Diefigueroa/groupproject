@@ -15,8 +15,28 @@ def index(request):
     return render(request,'maplot/all.html',context)
 
 def map(request):
-    template = loader.get_template('maplot/map.html')
-    return render(request, 'maplot/map.html', {})
+    books = squirrel.objects.all()
+    form = QueryForm(request.GET or None)
+    paramDict = request.GET
+
+    books = filter_books(books, paramDict)
+
+    page_count = books.aggregate(Sum('pages'))
+ 
+    map_books = [{'loc':[float(book.Longitude), float(book.Latitude)], 
+                  'title':book.Unique_Squirrel_ID,
+                  'url':book.get_absolute_url()} for book in books]
+    context = {
+        'books':books,
+        # Here, we apply `json.dumps`, `escapejs` and `marksafe` for security 
+        # and proper formatting
+        'map_books': mark_safe(escapejs(json.dumps(map_books))),
+        'page_count':page_count['pages__sum'], 
+        'form':form}
+
+    return render(request, 'maplot/map.html', context)
+
+
 
 def sightings(request):
     return HttpResponse("Hello, world. this is sightings page.")

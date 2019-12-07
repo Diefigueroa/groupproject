@@ -30,7 +30,7 @@
     id: 'mapbox/streets-v11',
     accessToken: 'pk.eyJ1IjoiZGYyNzYxIiwiYSI6ImNrM3R3YmVvZDA3Z2EzaXFtcHlqMzZxbWIifQ.f0B8E52UBwVYP184XuIRkQ'
 }).addTo(mymap);
-i
+
 
 
 {% for squirrel in n %}
@@ -39,5 +39,49 @@ i
   {% endfor %}
   
   </script>
+	
+  <script>
+
+    var bookIcon = L.icon({
+        iconUrl: '/static/images/marker-icon.png',
+        iconSize:     [35, 35], // size of the icon
+        iconAnchor:   [17, 35], // point of the icon which will correspond to marker's location
+        popupAnchor:  [0, -30] // point from which the popup should open relative to the iconAnchor
+        });
+
+    var markersLayer = L.markerClusterGroup();
+
+    mymap.addLayer(markersLayer);
+
+    var controlSearch = new L.Control.Search({
+        position:'topright',
+        layer: markersLayer,
+        initial: false,
+        zoom: 12,
+        marker: false
+    });
+
+    mymap.addControl( controlSearch );
+
+    function populateMap(data){
+        for(i in data) {
+        var title = data[i].title,	//value searched
+            loc = data[i].loc,		//position found
+            url = data[i].url,
+            marker = new L.Marker(new L.latLng(loc), {title: title, icon: bookIcon} );//se property searched
+        marker.bindPopup('<p><a href="'+ url + '">' + title + '</a></p>');
+        markersLayer.addLayer(marker);
+        }
+    }
+
+    // use context variable instead of making AJAX call
+    var map_books =  JSON.parse('{{ map_books }}')
+    var new_lat = map_books[0].loc[0]
+    var new_lon = map_books[0].loc[1]
+    mymap.setView([0, 0], 2);
+    populateMap(map_books)
+
+  </script>
+
 </body>
 </html>
