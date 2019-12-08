@@ -3,32 +3,33 @@
 	<head>
 		<title> Squirrel Information </title> 
 	</head>
+	<h2> <p> This is the detail page of the squirrel with ID = {{squ.Unique_Squirrel_ID}} </p>
+	</h2>
 	<body>
 		<ul>
-			<li>Latitude: {{detail_Latitude}}</li>
-			<li>Longitude: {{detail_Longitude}}</li>
-                        <li>Unique_Squirrel_ID: {{detail_Unique_Squirrel_ID}}</li>
-                        <li>Shift: {{detail_Shift}}</li>
-                        <li>Date: {{detail_Date}}</li>
-                        <li>Age: {{detail_Age}}</li>
-                        <li>Primary_Fur_Color: {{detail_Primary_Fur_Color}}</li>
-                        <li>Location: {{detail_Location}}</li>
-                        <li>Specific_Location: {{detail_Specific_Location }}</li>
-                        <li>Running: {{detail_Running}}</li>
-                        <li>Chasing: {{detail_Chasing}}</li>
-                        <li>Climbing: {{detail_Climbing}}</li>
-                        <li>Eating: {{detail_Eating}}</li>
-                        <li>Foraging: {{detail_Foraging}}</li>
-                        <li>Other_Activities: {{detail_Other_Activities}}</li>
-                        <li>Kuks: {{detail_Kuks}}</li>
-                        <li>Quaas: {{detail_Quaas}}</li>
-                        <li>Moans: {{detail_Moans}}</li>
-                        <li>Tail_flags: {{detail_Tail_flags}}</li>
-                        <li>Tail_twitches: {{detail_Tail_twitches}}</li>
-                        <li>Approaches: {{detail_Approaches}}</li>
-                        <li>Indifferent: {{detail_Indifferent}}</li>
-                        <li>Runs_from: {{detail_Runs_from}}</li>
-			<li><a href="/maplot/<str:Unique_squirrel_ID>/edit/">Update</a></li>
+			<li>Latitude: {{squ.latitude}}</li>
+			<li>Longitude: {{squ.longitude}}</li>
+                        <li>Shift: {{squ.Shift}}</li>
+                        <li>Date: {{squ.Date}}</li>
+                        <li>Age: {{squ.Age}}</li>
+                        <li>Primary_Fur_Color: {{squ.Primary_Fur_Color}}</li>
+                        <li>Location: {{squ.Location}}</li>
+                        <li>Specific_Location: {{squ.Specific_Location }}</li>
+                        <li>Running: {{squ.Running}}</li>
+                        <li>Chasing: {{squ.Chasing}}</li>
+                        <li>Climbing: {{squ.Climbing}}</li>
+                        <li>Eating: {{squ.Eating}}</li>
+                        <li>Foraging: {{squ.Foraging}}</li>
+                        <li>Other_Activities: {{squ.Other_Activities}}</li>
+                        <li>Kuks: {{squ.Kuks}}</li>
+                        <li>Quaas: {{squ.Quaas}}</li>
+                        <li>Moans: {{squ.Moans}}</li>
+                        <li>Tail_flags: {{squ.Tail_flags}}</li>
+                        <li>Tail_twitches: {{squ.Tail_twitches}}</li>
+                        <li>Approaches: {{squ.Approaches}}</li>
+                        <li>Indifferent: {{squ.Indifferent}}</li>
+                        <li>Runs_from: {{squ.Runs_from}}</li>
+			<li><a href="/sightings/{{squ.Unique_Squirrel_ID}}/">Update this squirrel HERE!</a></li>
 		</ul>
 	</body>
 </html>

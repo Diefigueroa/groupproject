@@ -34,9 +34,11 @@ def map(request):
     context ={"sightings": sightings}
     return render(request, 'maplot/map.html', context)
 
-def stats(request):
-    return HttpResponse("Hello, world. this is sightings page.")
+def details(request, Unique_Squirrel_ID):
+    squ  = get_object_or_404(squirrel, pk=Unique_Squirrel_ID)
+    return render(request, 'maplot/detail.html', context={'squ': squ})
 
+    
 def edit(request, Unique_Squirrel_ID):
     pet  = squirrel.objects.get(pk =Unique_Squirrel_ID)
     if request.method == 'POST':
@@ -44,7 +46,7 @@ def edit(request, Unique_Squirrel_ID):
     
         if form.is_valid():
             form.save()
-            return redirect(f'maplot/sightings/')
+            return redirect(f'/sightings/')
 
     else:
         form = squirrelForm(instance=pet)
@@ -60,7 +62,7 @@ def add(request):
         
         if form.is_valid():
             form.save()
-            return redirect(f'/maplot/map/') 
+            return redirect(f'/sightings/') 
     else:
         form = squirrelForm()
     context = {

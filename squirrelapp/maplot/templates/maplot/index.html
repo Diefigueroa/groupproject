@@ -4,12 +4,13 @@
 <TITLE>This is the sighting page for the Squirrel Census</TITLE>
 </head>
 
-<h3>Please click "detail" to see the feautures of a singles squirrel, press "edit" to edit its values</h3>
-
+<h3>Please click "detail" to see the feautures of a single squirrel, press "edit" to edit its values</h3>
+<br>
+<h4> <a href="/sightings/add">Press here to add a new squirrel!</a>
 <p>
 <ul>
 {% for i in squirrels %}
-<li>Squirrel with id: {{i.Unique_Squirrel_ID}} <a href="/sightings/{{i.Unique_Squirrel_ID}}">Press here for details</a> <a href="/maplot/sightings/<str:i.Unique_Squirrel_ID">Edit this sigthing!</a> </li>
+<li>Squirrel with id: {{i.Unique_Squirrel_ID}} <a href="/sightings/{{i.Unique_Squirrel_ID}}/details">Press here for details</a> <a href="/sightings/{{i.Unique_Squirrel_ID}}/">Edit this sigthing!</a> </li>
 {% endfor %}
 </ul>
 </p>
