@@ -44,7 +44,7 @@ def edit(request, Unique_Squirrel_ID):
     
         if form.is_valid():
             form.save()
-            return redirect(f'/maplot/map/')
+            return redirect(f'maplot/sightings/')
 
     else:
         form = squirrelForm(instance=pet)

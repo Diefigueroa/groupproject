@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<TITLE>This is the sighting page fro the Squirrel Census</TITLE>
+<TITLE>This is the sighting page for the Squirrel Census</TITLE>
 </head>
 
 <h3>Please click "detail" to see the feautures of a singles squirrel, press "edit" to edit its values</h3>
@@ -9,7 +9,7 @@
 <p>
 <ul>
 {% for i in squirrels %}
-<li>Squirrel with id: {{i.Unique_Squirrel_ID}} <a href="http://35.194.71.92/maplot/details/<str:i.Unique_Squirrel_Id>">Press here for details</a> <a href="http://35.194.71.92/maplot/sightings/<str:i.Unique_Squirrel_ID">Edit this sigthing!</a> </li>
+<li>Squirrel with id: {{i.Unique_Squirrel_ID}} <a href="/sightings/{{i.Unique_Squirrel_ID}}">Press here for details</a> <a href="/maplot/sightings/<str:i.Unique_Squirrel_ID">Edit this sigthing!</a> </li>
 {% endfor %}
 </ul>
 </p>
