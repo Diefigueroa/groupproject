@@ -3,7 +3,7 @@ Project Group 5, Section 2
 UNIs: [df2761,ty2418]
 
 The link to the server running our application is:
-https://tools1-255501.appspot.com/
+https://tools1-255501.appspot.com
 
 
 # Summary:
