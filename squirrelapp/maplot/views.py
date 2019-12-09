@@ -31,7 +31,7 @@ def squirrel_stats(request):
 
 def map(request):
     sightings = squirrel.objects.all()
-    context ={"sightings": sightings}
+    context ={"sightings": sightings[:99]}
     return render(request, 'maplot/map.html', context)
 
 def details(request, Unique_Squirrel_ID):
