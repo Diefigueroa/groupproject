@@ -4,10 +4,10 @@ The link to the server running our application is:
 https://tools1-255501.appspot.com/
 
 
-Summary:
+#Summary:
 Maplot is an app created to edit and view detailed information of each squirrel that was part of the central park squirrel census carried out in 2018, as well as to register new squirrel sightings. Its functionality also includes a map view with the location of 100 registered sightings of these animals and a view of certain stats of interest from the data gathering.
 
-Description:
+#Description:
 In order to perform the squirrel tracker app, we import the squirrel census data of 2018 into our database. The application has 6 page views, which are:
 
 1) / sightings: Shows the complete list of squirrels in the database, along with links to add, edit and view detailed information of a squirrel
